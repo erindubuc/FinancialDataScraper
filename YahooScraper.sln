@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YahooScraper", "YahooScraper\YahooScraper.csproj", "{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTesting", "NUnitTestProject1\SeleniumTesting.csproj", "{18F00EEE-E676-4FE1-AC58-238514BEB90D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37D29F14-C50B-463B-B8EC-EDC90DDD84A9}
+	EndGlobalSection
+EndGlobal
