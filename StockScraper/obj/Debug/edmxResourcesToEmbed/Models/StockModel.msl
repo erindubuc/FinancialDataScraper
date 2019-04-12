@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StockInfoModelStoreContainer" CdmEntityContainer="StockInfoEntities">
+    <EntitySetMapping Name="CurrentStockInfoes">
+      <EntityTypeMapping TypeName="StockInfoModel.CurrentStockInfo">
+        <MappingFragment StoreEntitySet="CurrentStockInfo">
+          <ScalarProperty Name="Stock_Id" ColumnName="Stock_Id" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="PercentChange" ColumnName="PercentChange" />
+          <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
+          <ScalarProperty Name="LastPrice" ColumnName="LastPrice" />
+          <ScalarProperty Name="MarketTime" ColumnName="MarketTime" />
+          <ScalarProperty Name="OpenPrice" ColumnName="OpenPrice" />
+          <ScalarProperty Name="HighPrice" ColumnName="HighPrice" />
+          <ScalarProperty Name="LowPrice" ColumnName="LowPrice" />
+          <ScalarProperty Name="YearWeekHigh" ColumnName="YearWeekHigh" />
+          <ScalarProperty Name="YearWeekLow" ColumnName="YearWeekLow" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoryOfStockInfoes">
+      <EntityTypeMapping TypeName="StockInfoModel.HistoryOfStockInfo">
+        <MappingFragment StoreEntitySet="HistoryOfStockInfo">
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="PercentChange" ColumnName="PercentChange" />
+          <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
+          <ScalarProperty Name="LastPrice" ColumnName="LastPrice" />
+          <ScalarProperty Name="MarketTime" ColumnName="MarketTime" />
+          <ScalarProperty Name="OpenPrice" ColumnName="OpenPrice" />
+          <ScalarProperty Name="HighPrice" ColumnName="HighPrice" />
+          <ScalarProperty Name="LowPrice" ColumnName="LowPrice" />
+          <ScalarProperty Name="YearWeekHigh" ColumnName="YearWeekHigh" />
+          <ScalarProperty Name="YearWeekLow" ColumnName="YearWeekLow" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
