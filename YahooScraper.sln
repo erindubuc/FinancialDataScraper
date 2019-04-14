@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YahooScraper", "YahooScraper\YahooScraper.csproj", "{5B7DDB90-E5F4-45E6-B684-FF085C7CFAB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTesting", "NUnitTestProject1\SeleniumTesting.csproj", "{18F00EEE-E676-4FE1-AC58-238514BEB90D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTesting", "NUnitTestProject1\SeleniumTesting.csproj", "{18F00EEE-E676-4FE1-AC58-238514BEB90D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockScraper", "StockScraper\StockScraper.csproj", "{FD6AAB91-ACCB-4738-BA15-4679A543B41B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F00EEE-E676-4FE1-AC58-238514BEB90D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD6AAB91-ACCB-4738-BA15-4679A543B41B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD6AAB91-ACCB-4738-BA15-4679A543B41B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD6AAB91-ACCB-4738-BA15-4679A543B41B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD6AAB91-ACCB-4738-BA15-4679A543B41B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
