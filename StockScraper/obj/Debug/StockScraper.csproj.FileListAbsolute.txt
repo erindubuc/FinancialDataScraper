@@ -103,3 +103,7 @@ C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\obj\Debug
 C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\obj\Debug\StockScraper.csproj.CopyComplete
 C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\obj\Debug\StockScraper.dll
 C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\obj\Debug\StockScraper.pdb
+C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\bin\WebDriver.dll
+C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\bin\WebDriver.Support.dll
+C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\bin\WebDriver.xml
+C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\StockScraper\bin\WebDriver.Support.xml

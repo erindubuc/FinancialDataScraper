@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StockScraper.Models;
+using StockScraper.Services;
 
 namespace StockScraper.Controllers
 {
@@ -39,6 +40,19 @@ namespace StockScraper.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+
+        public ActionResult ScrapeYahooForCurrentInfo()
+        {
+            if (ModelState.IsValid)
+            {
+                WebDriver driver = new WebDriver();
+                User yahooUser = new User();
+
+                WebDriver.DriverLoginToPortfolioAndGetStockData();
+
+            }
+            return RedirectToAction("Index");
         }
 
         // POST: CurrentStockInfoes/Create
