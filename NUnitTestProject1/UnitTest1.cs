@@ -9,7 +9,7 @@ namespace Tests
     [TestFixture]
     public class Tests
     {
-        IWebDriver driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1");
+        public IWebDriver driver;   
         private string LoginUrl = "https://login.yahoo.com/";
         private string username = "avengersassembull";
         private string password = "Ready2rock";
@@ -36,6 +36,11 @@ namespace Tests
         {
             try
             {
+                ChromeOptions options = new ChromeOptions();
+                options.AddArgument("--headless");
+                
+                driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1", options);
+
                 driver.Navigate().GoToUrl(LoginUrl1);
             }
             catch (Exception e)
