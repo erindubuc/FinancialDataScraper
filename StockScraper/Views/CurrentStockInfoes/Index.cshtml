@@ -4,10 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+
+
+<h2>My Stock Portfolio</h2>
 
 <p>
-    @Html.ActionLink("Get Current Stock Information", "ScrapeYahooForCurrentInfo")
+    @Html.ActionLink("Get Current Stock Information", "ScrapeYahooForCurrentInfo", "CurrentStockInfoes", new { @class = "btn btn-primary", id = "scraper", role = "button" })
 </p>
 <table class="table">
     <tr>
@@ -21,7 +23,7 @@
             AvgVol
         </th>
         <th>
-            Last 
+            Last
         </th>
         <th>
             Market Time
@@ -47,45 +49,46 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Symbol)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PercentChange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AverageVolume)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarketTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OpenPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HighPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LowPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearWeekHigh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.YearWeekLow)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.Symbol })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarketTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearWeekHigh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YearWeekLow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.Symbol })
+            </td>
+        </tr>
+    }
 
 </table>
