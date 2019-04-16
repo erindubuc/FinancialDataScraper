@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>My Stock Portfolio</h2>
 
 <p>
-    @Html.ActionLink("Get Current Stock Information", "ScrapeYahooForCurrentInfo")
+    @Html.ActionLink("Get Current Stock Information", "ScrapeYahooForCurrentInfo", "CurrentStockInfoes", new { @class = "btn btn-primary", id = "scraper", role = "button" })
 </p>
 <table class="table">
     <tr>

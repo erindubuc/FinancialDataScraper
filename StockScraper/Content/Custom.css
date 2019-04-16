@@ -1,0 +1,44 @@
+﻿body {
+}
+.bg {
+    background-image: url("./images/skyscraper.jpg");
+    background-size: cover;
+    position: relative;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /*
+    margin-top: -24px;
+    margin-bottom: -50px;*/
+}
+
+.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.jumbotron {
+    background-color: transparent;
+}
+
+.navbar-inverse {
+    background-color: #333366;
+}
+
+    .navbar-inverse .navbar-brand .navbar-text {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-brand:hover,
+    .navbar-inverse .navbar-brand:focus {
+        color: #669900;
+        background-color: transparent;
+    }
+
+    .navbar-inverse .navbar-text {
+        color: #fff;
+        background-color: transparent;
+    }  
