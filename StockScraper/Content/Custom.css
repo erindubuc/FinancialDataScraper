@@ -22,13 +22,15 @@
 
 .jumbotron {
     background-color: transparent;
+    font-family: 'Quattrocento Sans', sans-serif;
 }
 
 .navbar-inverse {
     background-color: #333366;
 }
 
-    .navbar-inverse .navbar-brand .navbar-text {
+    .navbar-inverse .navbar-brand {
+        font-family: 'Quattrocento Sans', sans-serif;
         color: #fff;
     }
 
@@ -38,7 +40,15 @@
         background-color: transparent;
     }
 
-    .navbar-inverse .navbar-text {
-        color: #fff;
-        background-color: transparent;
-    }  
+.navbar-collapse ul {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: transparent;
+}
+.row {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-weight: bold;
+    color: #3e4444;
+} 
