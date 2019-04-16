@@ -12,12 +12,8 @@ namespace YahooScraper
 {
     public class WebDriver : User
     {
-
-        public static ChromeOptions options; 
-        //= new ChromeOptions();
-        //options.AddArgument("--headless");
-        public static IWebDriver driver; 
-        //= new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1");
+        public ChromeOptions options;
+        public static IWebDriver driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1");
         public static List<Stock> ListOfAllStocks;
 
 
@@ -25,11 +21,6 @@ namespace YahooScraper
         {
             try
             {
-                options = new ChromeOptions();
-                options.AddArgument("--headless");
-                options.AddArgument("--disable-gpu");
-
-                driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1", options);
                 driver.Navigate().GoToUrl(LoginUrl);
             }
             catch (Exception e)

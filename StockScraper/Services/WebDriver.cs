@@ -9,8 +9,8 @@ namespace StockScraper.Services
 {
     public class WebDriver : User
     {
-        public static ChromeOptions options;
-        public static IWebDriver driver; 
+        public ChromeOptions options;
+        public static IWebDriver driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1");
         public static List<Stock> ListOfAllStocks;
 
 
@@ -18,11 +18,6 @@ namespace StockScraper.Services
         {
             try
             {
-                options = new ChromeOptions();
-                options.AddArgument("--headless");
-                options.AddArgument("--disable-gpu");
-
-                driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1", options);
                 driver.Navigate().GoToUrl(LoginUrl);
             }
             catch (Exception e)
