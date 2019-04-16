@@ -2,23 +2,23 @@
     ViewBag.Title = "Home Page";
 }
 @Styles.Render("~/Content/Custom.css")
-
+<div class="bg">
 <div class="jumbotron">
     <h1>StockScraper</h1>
     <p class="lead">Building a stock portfolio <br />
     has never been more within reach!</p>
     <p class="btn btn-default btn-sm">Learn more &raquo;</p>
 </div>
-
+</div>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <h2>@Html.ActionLink("Getting Started", "Index", "https://finance.yahoo.com/")</h2>
         <p>
             Check out Yahoo! Finance and build your personal portfolio of the stocks you want to track.
         </p>
         <p><a class="btn btn-default" href="https://finance.yahoo.com">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <h2>@Html.ActionLink("Feel Secure", "Index", "Account/Register")</h2>
         <p>All users access personal financial portfolios through the secure membership area.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
