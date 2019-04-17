@@ -5,9 +5,11 @@
 }
 
 <h2>History of Stock Information</h2>
+<br />
+<p>To view history by stock, click on a specific stock symbol.</p>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("View History for a specific stock", "SeeHistoryOfSpecificStock", "HistoryOfStockInfoes")
 </p>
 <table class="table">
     <tr>
@@ -84,9 +86,7 @@
         @Html.DisplayFor(modelItem => item.Date)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        @Html.ActionLink("Details", "Details", new {  id=item.StockId  }, new {  date=item.Date  }) 
     </td>
 </tr>
 }
