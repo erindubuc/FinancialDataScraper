@@ -51,4 +51,8 @@
     font-family: 'Quattrocento Sans', sans-serif;
     font-weight: bold;
     color: #3e4444;
-} 
+}
+
+.container .about {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
