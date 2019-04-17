@@ -3,3 +3,20 @@
 ################################################################################
 
 /.vs/YahooScraper/v16/Server/sqlite3/db.lock
+.vs/
+.vs/FinancialDataScraper/v16/.suo
+.vs/ProjectSettings.json
+.vs/VSWorkspaceState.json
+.vs/YahooScraper/DesignTimeBuild/.dtbcache
+.vs/YahooScraper/config/applicationhost.config
+.vs/YahooScraper/v15/.suo
+.vs/YahooScraper/v15/Server/sqlite3/db.lock
+.vs/YahooScraper/v15/Server/sqlite3/storage.ide
+.vs/YahooScraper/v15/Server/sqlite3/storage.ide-shm
+.vs/YahooScraper/v15/Server/sqlite3/storage.ide-wal
+.vs/YahooScraper/v16/.suo
+.vs/YahooScraper/v16/Server/sqlite3/storage.ide
+.vs/YahooScraper/v16/Server/sqlite3/storage.ide-shm
+.vs/YahooScraper/v16/Server/sqlite3/storage.ide-wal
+.vs/config/applicationhost.config
+.vs/slnx.sqlite
