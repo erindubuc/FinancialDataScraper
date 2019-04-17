@@ -3,13 +3,12 @@
 @{
     ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
-
+<br />
 <div>
-    <h4>HistoryOfStockInfo</h4>
+    <h3>Scrape Details For  @Html.DisplayFor(model => model.Symbol)</h3>
     <hr />
     <dl class="dl-horizontal">
+      
         <dt>
             @Html.DisplayNameFor(model => model.PercentChange)
         </dt>
@@ -82,17 +81,8 @@
             @Html.DisplayFor(model => model.YearWeekLow)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CurrentStockInfo.PercentChange)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CurrentStockInfo.PercentChange)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

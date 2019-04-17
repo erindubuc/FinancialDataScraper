@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\StockScraper",
+    "\\StockScraper\\Controllers",
+    "\\StockScraper\\Views",
+    "\\StockScraper\\Views\\HistoryOfStockInfoes"
   ],
+  "SelectedNode": "\\StockScraper\\Controllers\\CurrentStockInfoesController.cs",
   "PreviewInSolutionExplorer": false
 }
