@@ -6,18 +6,6 @@
     position: relative;
     background-repeat: no-repeat;
     height: 100vh;
-    /*
-    margin-top: -24px;
-    margin-bottom: -50px;*/
-}
-
-.dark-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .jumbotron {
@@ -53,6 +41,8 @@
     color: #3e4444;
 }
 
+/*
 .container .about {
-    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-family: 'Quattrocento Sans', sans-serif;
 }
+*/

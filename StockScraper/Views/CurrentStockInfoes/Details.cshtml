@@ -4,19 +4,11 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>CurrentStockInfo</h4>
+    <h3>Most recent stock information for @Html.DisplayFor(model => model.Symbol)</h3>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Symbol)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Symbol)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.PercentChange)
@@ -101,6 +93,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Symbol }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
