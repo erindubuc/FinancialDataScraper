@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace HTMLagilityPackScraper
 {
@@ -20,25 +21,59 @@ namespace HTMLagilityPackScraper
             var htmlDoc = web.Load(html);
 
             //var bodyNode = htmlDoc.DocumentNode.SelectSingleNode("//body/div[contains(@id, 'cnnBody')]");
+            IList<HtmlNode> list = new List<HtmlNode>();
 
-            var bodyNode = htmlDoc.DocumentNode.SelectSingleNode("//table");
-            var tableDataNodes = htmlDoc.DocumentNode.SelectNodes("//table[contains(@class, 'wsod_dataTable')]//tr//td//span");
+            HtmlNode tableNode = htmlDoc.DocumentNode.SelectSingleNode("//table");
+            HtmlNodeCollection tableDataNodes = htmlDoc.DocumentNode.SelectNodes("//table[contains(@class, 'wsod_dataTable')]//tr//td/span");
+            HtmlNodeCollection changeAndPercentNodes = htmlDoc.DocumentNode.SelectNodes("//table[contains(@class, 'wsod_dataTable')]//tr//td//span/span");
+            
+            foreach (HtmlNode node in tableDataNodes)
+            {
+                string[] nameAndPrice = node.InnerHtml.Split("\r\n");
+                
+                string[] stockPrice = nameAndPrice[0].Split(new[] { "\r\n" },
+                            StringSplitOptions.None
+                        );
+                /*
+                string[] stockPercentAndChange = singleStockData[0].Split(new[] { "\r\n", "\r", "\n" },
+                            StringSplitOptions.None
+                        );
+                        
+            
+                //Console.WriteLine(node.InnerHtml);
+                //list.Add(node);
 
-            foreach (var node in tableDataNodes)
-                Console.WriteLine(node.InnerHtml);
+                Console.WriteLine($"index 0 = {nameAndPrice[0]}");
+
+                
+                Console.WriteLine($"index 1 = {nameAndPrice[1]}");
+                //Console.WriteLine($"index 0 = {stockPrice[0]}");
+                //Console.WriteLine($"index 1 = {stockPrice[1]}");
+                //Console.WriteLine($"index 4 = {singleStockData[0]}");
+                Console.WriteLine();
+                /*
+                Console.WriteLine($"index 0 = {stockPercentAndChange[0]}");
+                Console.WriteLine($"index 1 = {stockPercentAndChange[1]}");
+                */
+            }
+        
+
+            foreach (HtmlNode node in changeAndPercentNodes)
+            {
+                //Console.WriteLine(node.InnerHtml);
+                string[] change = node.InnerHtml.Split("\r\n");
+                /*
+                string[] price = change[0].Split(new[] { "\r\n", "\r", "\n" },
+                            StringSplitOptions.None
+                        );
+                        */
+                Console.WriteLine($"{change[0]}");
+                //Console.WriteLine($"{change[1]}");
+            }
+                
 
             Console.WriteLine();
             
-            //var rowNodes = bodyNode.Elements("tr");
-            var dataNodes = bodyNode.ChildNodes;
-
-            foreach (var node in dataNodes)
-            {
-                if (node.NodeType == HtmlNodeType.Element)
-                {
-                    Console.WriteLine(node.InnerHtml);
-                }
-            }
             Console.ReadLine();
 
         }
