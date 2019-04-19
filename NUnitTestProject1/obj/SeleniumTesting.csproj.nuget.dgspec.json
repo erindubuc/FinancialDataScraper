@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj": {}
+    "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj": {
+    "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj",
+        "projectUniqueName": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj",
         "projectName": "SeleniumTesting",
-        "projectPath": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj",
+        "projectPath": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\SeleniumTesting.csproj",
         "packagesPath": "C:\\Users\\Erin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\obj\\",
+        "outputPath": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\NUnitTestProject1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

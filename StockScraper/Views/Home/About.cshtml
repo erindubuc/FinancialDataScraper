@@ -14,27 +14,37 @@
         routine successfully kept me on track by maintaining accountability in order to meet the required deadlines.
     </p>
 
-    <p>
-        The first goal in creating this financial data scraper was to configure a Yahoo account with a stock portfolio.
-        After setting up an account, I created a console application using Selenium and Chromedriver that
-        scraped specific stock data from my portfolio, and then printed it to the console.  The trickiest part here was
-        figuring out how to parse each stock's information appropriately.  Ultimately, manipulating each row from the stock
-        table and finding out where/if newline feeds existed, helped me to parse this data correctly.  I have to admit, it was
+    <p class="about">
+        To begin, I created a console application using Selenium and Chromedriver that scraped specific stock data 
+        from my Yahoo portfolio, and then printed it to the console.  The trickiest part here was figuring out how to 
+        parse each stock's information appropriately.  Ultimately, manipulating each row from the stock table and finding out 
+        where/if newline feeds existed, helped me to parse this data correctly.  I have to admit that it was
         AMAZING to see the console firing off each stock's data for the first time!
     </p>
 
-    <p>
+    <p class="about">
         The next phase included creating a SQL database which I did within Visual Studio, using the SQL Server Object
         Explorer. I created two table schemas with pertinent column names, datatypes, as well as primary and foreign keys,
         acknowledging the fact that performing any operational mathematics on the data would be unnecessary.  I found that
-        creating a separate class for the database was crucial for separating the concerns within my code.
+        creating separate classes for the WebDriver, User, and Database were crucial for separating the concerns within 
+        my code.
     </p>
 
-    <p>
-        Once these phases were completed, I created an ASP.Net MVC Web application with a database first approach.  This seemed
-        to be the best route as I already had a well configured database holding my stock data.  This application allows
-        authenticated users to access the stock portfolio and to perform a "scrape" in order to get the most up-to-date stock
-        data.  I integrated my console scraping application by reusing the WebDriver, User, and Database classes.
+    <p class="about">
+        Once I had a successfully working scraper, I moved on to creating the user facing front end.  This was supposed to be 
+        the "easy" part, but I faced many difficulties figuring out which style application best suited my needs in order to 
+        complete this project on time.  After trying out paths for .Net Core, .Net Framework, and code first, I created an 
+        ASP.Net Framework targeted, MVC Web application with a database first approach. I felt this was the best route as I 
+        already had a well configured database holding my stock data.  StockScraper allows authenticated users to access the 
+        stock portfolio and perform a "scrape" in order to get the most up-to-date stock information.  I integrated my console 
+        scraping application by reusing the WebDriver, User, and Database classes, and calling upon them in a controller.
+    </p>
+
+    <p class="about">
+        The biggest challenges that I have run into while completing this project include understanding the differences
+        between the .Net Framework and .Net Core, as well as using Git within Visual Studio.  I continue to research the 
+        ever-evolving world of the .Net universe, and I will never forget to be sure my that my .gitignore exists and that it 
+        contains the necessary folders and files before I make my first commit!  
     </p>
 </div>
 <h3>Technologies I Used:</h3>
