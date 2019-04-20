@@ -14,7 +14,7 @@
 }
 
 .navbar-inverse {
-    background-color: #333366;
+    background-color: #60609f;
 }
 
     .navbar-inverse .navbar-brand {
@@ -41,8 +41,7 @@
     color: #3e4444;
 }
 
-/*
-.container .about {
+
+p .about {
     font-family: 'Quattrocento Sans', sans-serif;
 }
-*/
