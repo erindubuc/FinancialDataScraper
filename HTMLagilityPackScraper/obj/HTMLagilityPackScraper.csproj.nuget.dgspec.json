@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj": {}
+    "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj": {
+    "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj",
+        "projectUniqueName": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj",
         "projectName": "HTMLagilityPackScraper",
-        "projectPath": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj",
+        "projectPath": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\HTMLagilityPackScraper.csproj",
         "packagesPath": "C:\\Users\\Erin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Erin\\source\\repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\obj\\",
+        "outputPath": "C:\\Users\\Erin\\Source\\Repos\\erindubuc\\FinancialDataScraper\\HTMLagilityPackScraper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.6.0, )"
             }
           },
           "imports": [
