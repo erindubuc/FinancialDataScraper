@@ -16,7 +16,6 @@ namespace WorldTradingDataScraper
 
         public static void Main(string[] args)
         {
-            
             WorldTradingDataApi newCallToApi = new WorldTradingDataApi();
             var request = newCallToApi.MakeApiRequest();
             var response = newCallToApi.ReceieveApiResponse(request);
@@ -45,15 +44,6 @@ namespace WorldTradingDataScraper
             }
             
             Console.ReadLine();
-
-
-
-
-
-
-
-
-
 
         }
 
