@@ -14,24 +14,35 @@ namespace WorldTradingDataScraper
     public class Program
     {
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            List<string> stocks = new List<string>() {"aapl", "jnj", "nflx", "dis", "tgt" };
-            string symbolInput = string.Join(",", stocks);
-
-            string BaseUrl = "https://www.worldtradingdata.com/api/v1/stock";
-            string api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
-            var client = new RestClient(BaseUrl);
-
-            var request = new RestRequest("?symbol={symbol}&api_token={api_token}", Method.GET);
-            request.AddParameter("symbol", symbolInput);
-            request.AddParameter("api_token", api_token);
             
-            var response = client.Execute(request);
-            Console.WriteLine(response.Content);
+            WorldTradingDataApi newCallToApi = new WorldTradingDataApi();
+            var request = newCallToApi.MakeApiRequest();
+            var response = newCallToApi.ReceieveApiResponse(request);
 
-            var callForStockInfo = JsonConvert.DeserializeObject<dynamic>(response.Content);
+            List<CallForStockInfo> allStocks = new List<CallForStockInfo>();
 
+            CallForStockInfo newStock;
+
+            var callForStockInfo = newCallToApi.DeserializeResponse(response);
+
+            for (int stockIndex = 0; stockIndex < WorldTradingDataApi.stocks.Count; stockIndex++)
+            {
+                string symbol = callForStockInfo.data[stockIndex].symbol.ToString();
+                string price = callForStockInfo.data[stockIndex].price.ToString();
+                string price_open = callForStockInfo.data[stockIndex].price_open.ToString();
+                string day_high = callForStockInfo.data[stockIndex].day_high.ToString();
+                string day_low = callForStockInfo.data[stockIndex].day_low.ToString();
+                string change_pct = callForStockInfo.data[stockIndex].change_pct.ToString();
+                string volume_avg = callForStockInfo.data[stockIndex].volume_avg.ToString();
+
+                newStock = new CallForStockInfo(symbol, price, price_open, day_high, day_low,
+                    change_pct, volume_avg);
+                allStocks.Add(newStock);
+                newStock.DisplayStockInfoToConsole(newStock);
+                Database.AddCurrentStockInfoIntoDatabase(newStock);
+            }
             
             Console.ReadLine();
 

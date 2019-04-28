@@ -12,35 +12,40 @@ namespace WorldTradingDataScraper
         public string Symbol { get; set; }
         public string PercentChange { get; set; }
         public string AvgVolume { get; set; }
-        public string LastPrice { get; set; }
+        public string Price { get; set; }
         public string OpenPrice { get; set; }
         public string HighPrice { get; set; }
         public string LowPrice { get; set; }
-        public string YearWeekHigh { get; set; }
-        public string YearWeekLow { get; set; }
 
         public CallForStockInfo()
         {
 
         }
-
-        public CallForStockInfo(string symbol, string percentChange, string avgVolume,
-            string last, string open, string high, string low,
-            string yearWeekHigh, string yearWeekLow)
+        // values need to be in order they come in from response
+        public CallForStockInfo(string symbol, string price, string price_open, string day_high, 
+            string day_low, string change_pct, string volume_avg)
         {
             this.Symbol = symbol;
-            this.PercentChange = percentChange;
-            this.AvgVolume = avgVolume;
-            this.LastPrice = last;
-            this.OpenPrice = open;
-            this.HighPrice = high;
-            this.LowPrice = low;
-            this.YearWeekHigh = yearWeekHigh;
-            this.YearWeekLow = yearWeekLow;
+            this.PercentChange = change_pct;
+            this.AvgVolume = volume_avg;
+            this.Price = price;
+            this.OpenPrice = price_open;
+            this.HighPrice = day_high;
+            this.LowPrice = day_low;
         }
 
-        public List<CallForStockInfo> stockList;
-       
+        public void DisplayStockInfoToConsole(CallForStockInfo newStock)
+        {
+            Console.WriteLine($"Symbol: {newStock.Symbol}");
+            Console.WriteLine($"Price: ${newStock.Price}");
+            Console.WriteLine($"Open Price: ${newStock.OpenPrice}");
+            Console.WriteLine($"High Price: ${newStock.HighPrice}");
+            Console.WriteLine($"Low Price: ${newStock.LowPrice}");
+            Console.WriteLine($"Percent Change: {newStock.PercentChange}%");
+            Console.WriteLine($"Average Volume: {newStock.AvgVolume}");
+            Console.WriteLine();
+        }
+ 
     }
 }
 

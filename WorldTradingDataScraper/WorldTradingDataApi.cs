@@ -2,28 +2,43 @@
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
+using System.Collections.Generic;
 
 namespace WorldTradingDataScraper
 {
   
-    public class WorldTradingDataApi : CallForStockInfo
+    public class WorldTradingDataApi
     {
-        
-        //api/v1/stock?symbol=AAPL,MSFT,HSBA.L&api_token=az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm
-
-        string _api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
-
-        public string Api_token { get => _api_token; set => _api_token = value; }
+        public static List<string> stocks = new List<string>() { "aapl", "jnj", "nflx", "dis", "tgt" };
+        public static string symbolInput = string.Join(",", stocks);
+        public static string BaseUrl = "https://www.worldtradingdata.com/api/v1/stock";
+        IRestClient client;
         public WorldTradingDataApi()
         {
-           
+             
+            client = new RestClient(BaseUrl);
+
         }
 
-        //?symbol={0}&api_token={_api_token}
-
-        public CallForStockInfo DeserializeResponse(RestResponse response)
+        public IRestRequest MakeApiRequest()
         {
-            return JsonConvert.DeserializeObject<CallForStockInfo>(response.Content);
+            string api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
+            
+            var request = new RestRequest("?symbol={symbol}&api_token={api_token}", Method.GET);
+            request.AddParameter("symbol", symbolInput);
+            request.AddParameter("api_token", api_token);
+            return request;
+        }
+        public IRestResponse ReceieveApiResponse(IRestRequest request)
+        {
+            var response = client.Execute(request);
+            return response;
+            //Console.WriteLine(response.Content);
+        }
+
+        public dynamic DeserializeResponse(dynamic response)
+        {
+            return JsonConvert.DeserializeObject<dynamic>(response.Content);
         }
 
     }
