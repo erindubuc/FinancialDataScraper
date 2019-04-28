@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WorldTradingDataScraper
 {
-    public class Call 
+    public class CallForStockInfo 
     {
         public string Symbol { get; set; }
         public string PercentChange { get; set; }
@@ -19,12 +19,12 @@ namespace WorldTradingDataScraper
         public string YearWeekHigh { get; set; }
         public string YearWeekLow { get; set; }
 
-        public Call()
+        public CallForStockInfo()
         {
 
         }
 
-        public Call(string symbol, string percentChange, string avgVolume,
+        public CallForStockInfo(string symbol, string percentChange, string avgVolume,
             string last, string open, string high, string low,
             string yearWeekHigh, string yearWeekLow)
         {
@@ -39,7 +39,7 @@ namespace WorldTradingDataScraper
             this.YearWeekLow = yearWeekLow;
         }
 
-        public List<Call> stockList;
+        public List<CallForStockInfo> stockList;
        
     }
 }

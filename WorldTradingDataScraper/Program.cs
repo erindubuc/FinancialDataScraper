@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using RestSharp;
+using RestSharp.Authenticators;
+using RestSharp.Deserializers;
 using RestSharp.Serialization.Json;
 using System;
 using System.Collections.Generic;
@@ -14,18 +16,24 @@ namespace WorldTradingDataScraper
 
         static void Main(string[] args)
         {
-            string[] symbol = { "aapl", "jnj", "nflx", "cvx", "googl", "fb",
-                "amzn", "dis", "sbux", "tgt" };
+            List<string> stocks = new List<string>() {"aapl", "jnj", "nflx", "dis", "tgt" };
+            string symbolInput = string.Join(",", stocks);
 
             string BaseUrl = "https://www.worldtradingdata.com/api/v1/stock";
-            string _api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
-            RestClient client = new RestClient(BaseUrl);
+            string api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
+            var client = new RestClient(BaseUrl);
 
-            RestRequest request = new RestRequest("?symbol={0}&api_token={}", Method.GET);
-            request.AddParameter("symbol", symbol, ParameterType.UrlSegment);
-            request.AddParameter("api_token", _api_token, ParameterType.UrlSegment);
+            var request = new RestRequest("?symbol={symbol}&api_token={api_token}", Method.GET);
+            request.AddParameter("symbol", symbolInput);
+            request.AddParameter("api_token", api_token);
+            
+            var response = client.Execute(request);
+            Console.WriteLine(response.Content);
 
+            var callForStockInfo = JsonConvert.DeserializeObject<dynamic>(response.Content);
 
+            
+            Console.ReadLine();
 
 
 
@@ -37,19 +45,12 @@ namespace WorldTradingDataScraper
 
 
         }
+
     }
 }
-/*
-        restRequest.AddParameter("symbol", symbol[0], ParameterType.UrlSegment);
-
-        restRequest.AddParameter("api_token", stockCall.Api_token, ParameterType.UrlSegment);
-
-
-        IRestResponse restResponse = restClient.Execute(restRequest);
-        string response = restClient.Execute(restRequest).Content;
-        
+/*      
         string data = @" {
-                    'symbo': 'AAPL',
+                    'symbol': 'AAPL',
                     'name': 'Apple Inc.',
                     'currency': 'USD',
                     'price': '204.30',

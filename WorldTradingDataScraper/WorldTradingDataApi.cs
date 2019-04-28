@@ -6,7 +6,7 @@ using System;
 namespace WorldTradingDataScraper
 {
   
-    public class WorldTradingDataApi : Call
+    public class WorldTradingDataApi : CallForStockInfo
     {
         
         //api/v1/stock?symbol=AAPL,MSFT,HSBA.L&api_token=az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm
@@ -21,9 +21,9 @@ namespace WorldTradingDataScraper
 
         //?symbol={0}&api_token={_api_token}
 
-        public Call DeserializeResponse(RestResponse response)
+        public CallForStockInfo DeserializeResponse(RestResponse response)
         {
-            return JsonConvert.DeserializeObject<Call>(response.Content);
+            return JsonConvert.DeserializeObject<CallForStockInfo>(response.Content);
         }
 
     }

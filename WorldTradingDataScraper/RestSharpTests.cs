@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Newtonsoft.Json;
+using NUnit.Framework;
 using RestSharp;
 using System;
 using System.Collections;
@@ -87,5 +88,47 @@ namespace WorldTradingDataScraper
             }
             return (RestResponse)response;
         }
+
+        [Test]
+        public void GetResponse()
+        {
+            string[] symbol = { "aapl", "jnj", "nflx", "cvx", "googl", "fb",
+                "amzn", "dis", "sbux", "tgt" };
+
+            string BaseUrl = "https://www.worldtradingdata.com/api/v1/stock";
+            string _api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
+            IRestClient client = new RestClient(BaseUrl);
+
+            IRestRequest request = new RestRequest("?symbol={symbol}&api_token={_api_token}", Method.GET);
+            request.AddParameter("symbol", symbol, ParameterType.UrlSegment);
+            request.AddParameter("api_token", _api_token, ParameterType.UrlSegment);
+
+            var response = client.Get<CallForStockInfo>(request);
+            //var stockInfo = JsonConvert.DeserializeObject<CallForStockInfo>(response.Content);
+            Assert.IsNotNull(response);
+        }
+
+        [Test]
+        public void PrintResponseToConsole()
+        {
+            {
+                List<string> stocks = new List<string>() { "aapl", "jnj", "nflx", "dis", "tgt" };
+                string symbolInput = string.Join(",", stocks);
+
+                string BaseUrl = "https://www.worldtradingdata.com/api/v1/stock";
+                string api_token = "az2kDCRFHlJQyJXEcvPoIYjNPsPf62t4ZzF3a51r5uml71c4WbzAjTbDAKkm";
+                var client = new RestClient(BaseUrl);
+
+                var request = new RestRequest("?symbol={symbol}&api_token={api_token}", Method.GET);
+                request.AddParameter("symbol", symbolInput);
+                request.AddParameter("api_token", api_token);
+
+                var response = client.Execute(request);
+                Console.WriteLine(response.Content);
+                Assert.IsNotEmpty(response.Content);
+
+            }
+        }
     }
 }
+
