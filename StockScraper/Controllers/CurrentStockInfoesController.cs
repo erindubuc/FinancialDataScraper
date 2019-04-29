@@ -16,12 +16,14 @@ namespace StockScraper.Controllers
         private StockInfoEntities db = new StockInfoEntities();
 
         // GET: CurrentStockInfoes
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.CurrentStockInfoes.ToList());
         }
 
         // GET: CurrentStockInfoes/Details/5
+        [Authorize]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -36,12 +38,7 @@ namespace StockScraper.Controllers
             return View(currentStockInfo);
         }
 
-        // GET: CurrentStockInfoes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
+        [Authorize]
         public ActionResult ScrapeYahooForCurrentInfo()
         {
             if (ModelState.IsValid)
@@ -55,23 +52,7 @@ namespace StockScraper.Controllers
             return RedirectToAction("Index");
         }
 
-        // POST: CurrentStockInfoes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Stock_Id,Symbol,PercentChange,AverageVolume,LastPrice,MarketTime,OpenPrice,HighPrice,LowPrice,YearWeekHigh,YearWeekLow,Date")] CurrentStockInfo currentStockInfo)
-        {
-            if (ModelState.IsValid)
-            {
-                db.CurrentStockInfoes.Add(currentStockInfo);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(currentStockInfo);
-        }
-
+      
         protected override void Dispose(bool disposing)
         {
             if (disposing)

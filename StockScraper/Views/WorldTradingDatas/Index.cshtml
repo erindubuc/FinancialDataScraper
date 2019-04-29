@@ -1,0 +1,71 @@
+﻿@model IEnumerable<StockScraper.Models.WorldTradingData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>RestSharp Scraper for World Trading Data</h2>
+
+<p>
+    @Html.ActionLink("Click Here to Get the Most Current Stock Update", "CallWTDApiForCurrentInfo", "WorldTradingDatas", new { @class = "btn btn-default", id = "scraper", role = "button" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Symbol
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Open
+        </th>
+        <th>
+            High
+        </th>
+        <th>
+            Low
+        </th>
+        <th>
+            % Change
+        </th>
+        <th>
+            Avg Vol
+        </th>
+        <th>
+            Date
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HighPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgVolume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+    }
+
+</table>
