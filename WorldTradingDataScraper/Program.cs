@@ -40,6 +40,7 @@ namespace WorldTradingDataScraper
                     change_pct, volume_avg);
                 allStocks.Add(newStock);
                 newStock.DisplayStockInfoToConsole(newStock);
+                Database.MoveCurrentStockInfoToHistoryOfStocksTable(newStock);
                 Database.AddCurrentStockInfoIntoDatabase(newStock);
             }
             

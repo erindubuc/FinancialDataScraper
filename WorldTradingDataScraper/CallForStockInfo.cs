@@ -1,6 +1,7 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace WorldTradingDataScraper
         public string OpenPrice { get; set; }
         public string HighPrice { get; set; }
         public string LowPrice { get; set; }
+        public SqlDbType ScrapeId { get; internal set; }
 
         public CallForStockInfo()
         {
@@ -33,6 +35,8 @@ namespace WorldTradingDataScraper
             this.HighPrice = day_high;
             this.LowPrice = day_low;
         }
+
+
 
         public void DisplayStockInfoToConsole(CallForStockInfo newStock)
         {
