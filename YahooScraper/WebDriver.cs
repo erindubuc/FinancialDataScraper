@@ -25,6 +25,7 @@ namespace YahooScraper
                 options.AddArgument("--headless");
                 options.AddArgument("--disable-gpu");
 
+                //driver = new ChromeDriver(@"C:\Users\Erin\Source\Repos\erindubuc\FinancialDataScraper\YahooScraper\EXEfiles", options);
                 driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1", options);
                 driver.Navigate().GoToUrl(LoginUrl);
             }
