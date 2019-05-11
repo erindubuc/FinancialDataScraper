@@ -15,9 +15,30 @@ namespace StockScraper.Controllers
         private StockInfoEntities db = new StockInfoEntities();
 
         // GET: HistoryOfStockInfoes
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder)
         {
+            ViewBag.SymbolSortParm = String.IsNullOrEmpty(sortOrder) ? "symbol_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
             var historyOfStockInfoes = db.HistoryOfStockInfoes.Include(h => h.CurrentStockInfo);
+
+            switch (sortOrder)
+            {
+                case "symbol_desc":
+                    historyOfStockInfoes = db.HistoryOfStockInfoes.OrderByDescending(s => s.Symbol);
+                   break;
+                case "Date":
+                    historyOfStockInfoes = db.HistoryOfStockInfoes.OrderBy(s => s.Date);
+                    break;
+                case "date_desc":
+                    historyOfStockInfoes = db.HistoryOfStockInfoes.OrderByDescending(s => s.Date);
+                    break;
+                default:
+                    historyOfStockInfoes = db.HistoryOfStockInfoes.Include(h => h.CurrentStockInfo);
+                    //students = students.OrderBy(s => s.LastName);
+                    break;
+            }
+
             return View(historyOfStockInfoes.ToList());
         }
 

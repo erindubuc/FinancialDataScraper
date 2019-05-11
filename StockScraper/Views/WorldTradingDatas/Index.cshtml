@@ -4,12 +4,15 @@
     ViewBag.Title = "Index";
 }
 
-<h2>RestSharp Scraper for World Trading Data</h2>
-
+<h2 style="font-family: 'Quattrocento Sans', sans-serif;">
+    World Trading Data Pull with RestSharp
+</h2>
+<br />
 <p>
     @Html.ActionLink("Click Here to Get the Most Current Stock Update", "CallWTDApiForCurrentInfo", "WorldTradingDatas", new { @class = "btn btn-default", id = "scraper", role = "button" })
 </p>
-<table class="table">
+<br />
+<table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
     <tr>
         <th>
             Symbol
@@ -35,7 +38,7 @@
         <th>
             Date
         </th>
-        <th></th>
+     
     </tr>
 
     @foreach (var item in Model)

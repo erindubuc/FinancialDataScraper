@@ -1,17 +1,21 @@
 ﻿@model IEnumerable<StockScraper.Models.HistoryOfStockInfo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Yahoo History";
 }
 
-<h2>History of Stock Information</h2>
+<h2 style="font-family: 'Quattrocento Sans', sans-serif;">
+    History of Yahoo Stock Information
+</h2>
 
-<h5>Scroll down to see all of the scrapes for each stock.</h5>
+<h5 style="font-family: 'Quattrocento Sans', sans-serif;">
+    Click Symbol or Date to sort your results by Stock or by Scrape Date.
+</h5>
 <br/>
-<table class="table">
+<table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
     <tr>
         <th>
-            Symbol
+            @Html.ActionLink("Symbol", "Index", new { sortOrder = ViewBag.SymbolSortParm })
         </th>
         <th>
             % Chg
@@ -41,7 +45,7 @@
             52-Wk Low
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.ActionLink("Date", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
 
         <th></th>

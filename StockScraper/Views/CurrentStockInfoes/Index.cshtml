@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<StockScraper.Models.CurrentStockInfo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Yahoo Stocks";
 }
 
-<h2>My Stock Portfolio</h2>
+<h2 style="font-family: 'Quattrocento Sans', sans-serif;">Yahoo Stock Portfolio</h2>
 <br />
 <p>
     @Html.ActionLink("Click Here to Get the Most Current Stock Update", "ScrapeYahooForCurrentInfo", "CurrentStockInfoes", new { @class = "btn btn-default", id = "scraper", role = "button" })
 </p>
-<table class="table">
+<table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
     <tr>
         <th>
             Symbol
