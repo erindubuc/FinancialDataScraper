@@ -1,5 +1,8 @@
 ﻿body {
+    width: 100%;
+
 }
+/*
 .bg {
     background-image: url("./images/skyscraper.jpg");
     background-size: cover;
@@ -7,6 +10,7 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+    */
 
 .jumbotron {
     background-color: transparent;
