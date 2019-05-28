@@ -1,21 +1,9 @@
 ﻿@{
-    ViewBag.Title = "StockScraper - Home";
+    ViewBag.Title = "Home";
 }
 @Styles.Render("~/Content/Custom.css")
 
-@section head{
-    <style type="text/css">
-        .bg {
-            background-image: url(/Content/images/skyscraper.jpg);
-            margin: 0;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            height: 100%;
 
-        }
-        </style>
-    }
 
 <div class="bg">
 <div class="jumbotron">
@@ -25,7 +13,7 @@
     <p class="btn btn-default btn-sm">@Html.ActionLink("Learn more", "About", "Home/About")</p>
 </div>
 </div>
-<div class="row">
+<div class="row pt-3">
     <div class="col-md-6">
         <h2>@Html.ActionLink("Getting Started", "Index")</h2>
         <p>

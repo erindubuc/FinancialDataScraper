@@ -4,36 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+
     <title>@ViewBag.Title - StockScraper</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
     @Styles.Render("~/Content/Custom.css")
-    @RenderSection("head", required: false)
+    
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("StockScraper", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
 
-            <div class="navbar-collapse collapse">
+    <nav class="navbar bg-dark navbar-dark fixed-top">
+        <div class="container-fluid">
+            
+            @Html.ActionLink("StockScraper", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    
-                </ul>
-                @Html.Partial("_LoginPartial")
+                    <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { @class = "nav-link" })</li>
+
+
+
+                        </ul>
+
+                        @Html.Partial("_LoginPartial")
+                    </div>
             </div>
-        </div>
-    </div>
-    <div class="container body-content">
+</nav>
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
         <footer>

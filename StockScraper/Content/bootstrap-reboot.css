@@ -4,13 +4,13 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * Forked from Normalize.css, licensed MIT (https://github.com/necolas/normalize.css/blob/master/LICENSE.md)
- */
+ 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
+*/
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -52,7 +52,7 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-
+/*
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -63,7 +63,7 @@ abbr[data-original-title] {
   -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
-
+*/
 address {
   margin-bottom: 1rem;
   font-style: normal;

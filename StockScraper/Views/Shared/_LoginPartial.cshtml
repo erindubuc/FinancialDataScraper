@@ -4,17 +4,33 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>
+    
+    <ul class="nav navbar-nav navbar-right mr-auto">
+        <li class="nav-item">
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li>@Html.ActionLink("Yahoo", "Index", "CurrentStockInfoes")</li>
-        <li>@Html.ActionLink("History", "Index", "HistoryOfStockInfoes")</li>
-        <li>@Html.ActionLink("World Trading Data", "Index", "WorldTradingDatas")</li>
-      
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-item dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Yahoo!
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">
+                    @Html.ActionLink("Current Info", "Index", "CurrentStockInfoes", new { @class = "nav-link" })
+                </a>
+                <a class="dropdown-item" href="#">
+                    @Html.ActionLink("History", "Index", "HistoryOfStockInfoes", new { @class = "nav-link" })
+                </a>
+               
+            </div>
+        </li>
+        
+        <li class="nav-item">
+            @Html.ActionLink("World Trading", "Index", "WorldTradingDatas")
+        </li>
 
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+
+        <li class="nav-item"><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
 }

@@ -1,30 +1,31 @@
 ﻿body {
     width: 100%;
+}
 
-}
-/*
 .bg {
-    background-image: url("./images/skyscraper.jpg");
-    background-size: cover;
-    position: relative;
+    background-image: url(/Content/images/skyscraper.jpg);
+    margin: 0;
     background-repeat: no-repeat;
+    background-position: center;
+    
+    background-size: cover;
     height: 100vh;
+    width: 100vw;
 }
-    */
+
 
 .jumbotron {
     background-color: transparent;
     font-family: 'Quattrocento Sans', sans-serif;
+    
 }
 
-.navbar-inverse {
-    background-color: #60609f;
-    border: none;
-}
+
 
     .navbar-inverse .navbar-brand {
         font-family: 'Quattrocento Sans', sans-serif;
         color: #fff;
+        font-size: 16px;
     }
 
     .navbar-inverse .navbar-brand:hover,
@@ -37,7 +38,7 @@
     font-family: 'Quattrocento Sans', sans-serif;
     font-weight: bold;
     font-size: 14px;
-    color: #ffffff;
+    color: #fff;
     background-color: transparent;
 }
 .row {

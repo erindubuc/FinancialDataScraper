@@ -4,12 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2 style="font-family: 'Quattrocento Sans', sans-serif;">
+<h2 class="pt-4 text-center" style="font-family: 'Quattrocento Sans', sans-serif;">
     World Trading Data Pull with RestSharp
 </h2>
 <br />
-<p>
-    @Html.ActionLink("Click Here to Get the Most Current Stock Update", "CallWTDApiForCurrentInfo", "WorldTradingDatas", new { @class = "btn btn-default", id = "scraper", role = "button" })
+<p class="text-center">
+    @Html.ActionLink("Click Here to Get the Most Current Stock Update", "CallWTDApiForCurrentInfo", "WorldTradingDatas", new { @class = "btn btn-outline-secondary", id = "scraper", role = "button" })
 </p>
 <br />
 <table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
