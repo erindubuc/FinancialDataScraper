@@ -6,6 +6,7 @@ namespace HTMLagilityPackScraper
 
     public class Stock
     {
+        public int StockId { get; set; }
         public string CompanyName { get; set; }
         public string Price { get; set; }
         public string Change { get; set; }
@@ -15,7 +16,7 @@ namespace HTMLagilityPackScraper
         public Stock()
         { }
 
-        public Stock(string companyName, string price, string change, string percentChange)
+        public Stock(int stockId, string companyName, string price, string change, string percentChange)
         {
             this.CompanyName = companyName;
             this.Price = price;

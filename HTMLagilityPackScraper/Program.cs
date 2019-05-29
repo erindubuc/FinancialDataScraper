@@ -23,12 +23,17 @@ namespace HTMLagilityPackScraper
 
             HtmlNodeCollection rowsNodesList = htmlDoc.DocumentNode.SelectNodes("//table[contains(@class, 'wsod_dataTable')]//tr");
 
-            int rowCount = 1;
+            //int rowCount = 1;
+            int stockId = 0;
+
             foreach (var row in rowsNodesList)
             {
+                stockId++;
+
                 var cells = row.SelectNodes("td");
                 if (cells != null && cells.Count > 0)
                 {
+                    
                     var companyName = cells[0].InnerText;
                     //companyName = companyName.Replace("\r\n", "").Trim();
                     var price = cells[1].InnerText;
@@ -38,15 +43,15 @@ namespace HTMLagilityPackScraper
                     var percentChange = cells[3].InnerText;
                     //percentChange = percentChange.Replace("\r\n", "").Trim();
 
-                    Console.WriteLine("Row: {0}", rowCount);
+                    Console.WriteLine("Row: {0}", stockId);
                     Console.WriteLine("Company Name: {0}", companyName);
                     Console.WriteLine("Price: {0}", price);
                     Console.WriteLine("Change: {0}", change);
                     Console.WriteLine("Percent Change: {0}", percentChange);
                     Console.WriteLine("--------------------");
-                    rowCount++;
+                    //rowCount++;
 
-                    Stock newStock = new Stock(companyName, price, change, percentChange);
+                    Stock newStock = new Stock(stockId, companyName, price, change, percentChange);
                     stockList.Add(newStock);
                     Database.AddCurrentStockInfoIntoDatabase(newStock);
                 }
