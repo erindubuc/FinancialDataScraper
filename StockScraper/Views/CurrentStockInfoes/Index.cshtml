@@ -9,8 +9,13 @@
 </h2>
 <br />
 <p class="text-center">
-    @Html.ActionLink("Click Here to Get the Most Current Stock Update", "ScrapeYahooForCurrentInfo", "CurrentStockInfoes", new { @class = "btn btn-outline-secondary", id = "scraper", role = "button" })
+    @Html.ActionLink("Click Here to Get the Most Current Stock Update", 
+    "ScrapeYahooForCurrentInfo", 
+    "CurrentStockInfoes", 
+    new { @class = "btn btn-outline-secondary", id = "scraper", role = "button" })
 </p>
+
+
 <table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
     <tr>
         <th>
@@ -88,3 +93,5 @@
 }
 
 </table>
+
+

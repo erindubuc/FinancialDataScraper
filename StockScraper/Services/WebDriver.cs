@@ -82,8 +82,6 @@ namespace StockScraper.Services
 
                 int stockId = 0;
 
-
-
                 foreach (var row in tableRows)
                 {
                     stockId++;
@@ -93,31 +91,16 @@ namespace StockScraper.Services
                         );
 
                     singleStockData[0] = stockSymbolAndPercent[0];
-                    Console.WriteLine($"index 0 = {stockSymbolAndPercent[0]}");
-                    Console.WriteLine($"index 1 = {stockSymbolAndPercent[1]}");
-                    Console.WriteLine($"index 1 = {singleStockData[1]}");
-                    Console.WriteLine($"index 2 = {singleStockData[2]}");
-                    Console.WriteLine($"index 3 = {singleStockData[3]}");
-                    Console.WriteLine($"index 4 = {singleStockData[4]}");
-                    Console.WriteLine($"index 5 = {singleStockData[5]}");
-                    Console.WriteLine($"index 6 = {singleStockData[6]}");
-                    Console.WriteLine($"index 7 = {singleStockData[7]}");
-                    Console.WriteLine($"index 8 = {singleStockData[8]}");
-                    Console.WriteLine($"index 9 = {singleStockData[9]}");
-                    Console.WriteLine();
-
+                    
                     Stock newStock = new Stock(stockId, stockSymbolAndPercent[0], stockSymbolAndPercent[1], singleStockData[1], singleStockData[2],
                         singleStockData[3] + singleStockData[4], singleStockData[5], singleStockData[6], singleStockData[7],
                         singleStockData[8], singleStockData[9]);
-
-                    Console.WriteLine($"The new stock {newStock.Symbol} has been created");
 
                     ListOfAllStocks.Add(newStock);
 
                     Database.MoveCurrentStockInfoToHistoryOfStocksTable(newStock);
                     Database.AddCurrentStockInfoIntoDatabase(newStock);
 
-                    Console.WriteLine();
                 }
             }
             catch (NoSuchElementException e)
@@ -131,16 +114,5 @@ namespace StockScraper.Services
 
             return ListOfAllStocks;
         }
-
-        public static void DisplayStockInfoToConsole(List<IWebElement> tableRows)
-        {
-            foreach (var item in tableRows)
-            {
-                Console.WriteLine(" " + item.Text + "\t\t");
-            }
-
-        }
-
-
     }
 }
