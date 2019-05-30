@@ -36,7 +36,7 @@ namespace HTMLagilityPackScraper
                 try
                 {
                     using (SqlCommand command = new SqlCommand(
-                        //"INSERT INTO CNNmoneyStocks VALUES(@CompanyName, @Price, @Change, @PercentChange, @Date)", connection))
+                       
                     
                     "IF NOT EXISTS(SELECT * FROM CNNmoneyStocks WHERE CompanyName = @CompanyName) INSERT INTO CNNmoneyStocks VALUES(@StockId, @CompanyName, @Price, @Change, " +
                     "@PercentChange, @Date)" +
