@@ -4,9 +4,11 @@
     ViewBag.Title = "Yahoo Stocks";
 }
 
-<h2 class="pt-4 text-center" style="font-family: 'Quattrocento Sans', sans-serif;">Yahoo Stock Portfolio</h2>
+<h2 class="pt-4 text-center" style="font-family: 'Quattrocento Sans', sans-serif; color: darkslateblue;">
+    Yahoo Stock Portfolio
+</h2>
 <br />
-<p>
+<p class="text-center">
     @Html.ActionLink("Click Here to Get the Most Current Stock Update", "ScrapeYahooForCurrentInfo", "CurrentStockInfoes", new { @class = "btn btn-outline-secondary", id = "scraper", role = "button" })
 </p>
 <table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
@@ -81,9 +83,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id=item.Symbol })
         </td>
     </tr>
 }

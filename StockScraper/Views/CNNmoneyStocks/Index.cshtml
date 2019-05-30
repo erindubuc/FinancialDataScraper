@@ -1,0 +1,59 @@
+﻿@model IEnumerable<StockScraper.Models.CNNmoneyStock>
+
+@{
+    ViewBag.Title = "CNN";
+}
+
+<h2 class="pt-4 text-center" style="font-family: 'Quattrocento Sans', sans-serif; color: darkslateblue;">
+    CNN Hot Stocks with Html Agility-Pack
+</h2>
+<p class="text-center">
+    @Html.ActionLink("Click Here to Get the Most Current Stock Update", "HAPScrapeCNNHotStocks", "CNNmoneyStocks", new { @class = "btn btn-outline-secondary", id = "scraper", role = "button" })
+</p>
+<br />
+<table class="table table-striped" style="font-family: 'Quattrocento Sans', sans-serif;">
+    <tr>
+        <th>
+            Company
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Change
+        </th>
+        <th>
+            % Chg
+        </th>
+        <th>
+            Date
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Change)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PercentChange)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+    }
+
+</table>
+
+

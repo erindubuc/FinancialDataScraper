@@ -136,10 +136,7 @@ namespace StockScraper.Services
                 try
                 {
                     using (SqlCommand command = new SqlCommand(
-                        /*
-                        "INSERT INTO WorldTradingData VALUES(@Symbol, @Price, @OpenPrice, @HighPrice, @LowPrice, " +
-                        "@PercentChange, @AvgVolume, @Date)", connection))
-                        */
+
                         "IF NOT EXISTS(SELECT * FROM WorldTradingData WHERE Symbol = @Symbol) INSERT INTO WorldTradingData VALUES(@Symbol, @Price, @OpenPrice, @HighPrice, @LowPrice," +
                         "@PercentChange, @AvgVolume, @Date)" +
                         "ELSE UPDATE WorldTradingData SET PercentChange = @PercentChange, AvgVolume = @AvgVolume, " +
@@ -206,6 +203,47 @@ namespace StockScraper.Services
                 catch (Exception e)
                 {
                     Console.WriteLine("Values could not be inserted into history table");
+
+                    throw e;
+                }
+            }
+        }
+
+        public static void AddCNNMoneyIntoDatabase(Stock stock)
+        {
+            string connectionString = GetConnectionString();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(
+
+
+                    "IF NOT EXISTS(SELECT * FROM CNNmoneyStocks WHERE CompanyName = @CompanyName) INSERT INTO CNNmoneyStocks VALUES(@StockId, @CompanyName, @Price, @Change, " +
+                    "@PercentChange, @Date)" +
+                    "ELSE UPDATE CNNmoneyStocks SET StockId = @StockId , Price = @Price, Change = @Change, PercentChange = @PercentChange, Date = @Date WHERE CompanyName = @CompanyName", connection))
+
+                    {
+                        command.Parameters.Add(new SqlParameter("StockId", stock.StockId));
+                        command.Parameters.Add(new SqlParameter("CompanyName", stock.CompanyName));
+                        command.Parameters.Add(new SqlParameter("Price", stock.Price));
+                        command.Parameters.Add(new SqlParameter("Change", stock.Change));
+                        command.Parameters.Add(new SqlParameter("PercentChange", stock.PercentChange));
+                        command.Parameters.Add(new SqlParameter("Date", DateTime.Now));
+                        command.ExecuteNonQuery();
+                        Console.WriteLine($"{stock.CompanyName} stock successfully added");
+                    }
+
+                    Console.WriteLine("The database has been successfully updated.");
+
+                    connection.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Values could not be inserted into database");
 
                     throw e;
                 }

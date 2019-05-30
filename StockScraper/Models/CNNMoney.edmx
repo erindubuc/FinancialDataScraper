@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StockInfoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StockInfo.dbo.CNNmoneyStocks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CNNmoneyStocks">
+          <Key>
+            <PropertyRef Name="StockId" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Change" />
+            <PropertyRef Name="PercentChange" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockId" Type="tinyint" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar(max)" Nullable="false" />
+          <Property Name="Price" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Change" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="PercentChange" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="StockInfoModel1StoreContainer">
+          <EntitySet Name="CNNmoneyStocks" EntityType="Self.CNNmoneyStocks" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CNNmoneyStocks].[StockId] AS [StockId], 
+    [CNNmoneyStocks].[CompanyName] AS [CompanyName], 
+    [CNNmoneyStocks].[Price] AS [Price], 
+    [CNNmoneyStocks].[Change] AS [Change], 
+    [CNNmoneyStocks].[PercentChange] AS [PercentChange], 
+    [CNNmoneyStocks].[Date] AS [Date]
+    FROM [dbo].[CNNmoneyStocks] AS [CNNmoneyStocks]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StockInfoModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CNNmoneyStock">
+          <Key>
+            <PropertyRef Name="StockId" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Change" />
+            <PropertyRef Name="PercentChange" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="StockId" Type="Byte" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Change" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PercentChange" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="StockInfoEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CNNmoneyStocks" EntityType="Self.CNNmoneyStock" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StockInfoModel1StoreContainer" CdmEntityContainer="StockInfoEntities3">
+          <EntitySetMapping Name="CNNmoneyStocks">
+            <EntityTypeMapping TypeName="StockInfoModel1.CNNmoneyStock">
+              <MappingFragment StoreEntitySet="CNNmoneyStocks">
+                <ScalarProperty Name="StockId" ColumnName="StockId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="PercentChange" ColumnName="PercentChange" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

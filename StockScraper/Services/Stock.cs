@@ -18,6 +18,9 @@ namespace StockScraper.Services
         public string LowPrice { get; set; }
         public string YearWeekHigh { get; set; }
         public string YearWeekLow { get; set; }
+        public string CompanyName { get; set; }
+        public string Price { get; set; }
+        public string Change { get; set; }
 
         public Stock()
         {
@@ -39,6 +42,16 @@ namespace StockScraper.Services
             this.LowPrice = low;
             this.YearWeekHigh = yearWeekHigh;
             this.YearWeekLow = yearWeekLow;
+        }
+
+        public Stock(int stockId, string companyName, string price, string change, string percentChange)
+        {
+            this.StockId = stockId;
+            this.CompanyName = companyName;
+            this.StockId = stockId;
+            this.Price = price;
+            this.Change = change;
+            this.PercentChange = percentChange;
         }
     }
 }

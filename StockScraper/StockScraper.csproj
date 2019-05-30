@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.11.4.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.4\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -185,6 +188,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CNNmoneyStocksController.cs" />
     <Compile Include="Controllers\CurrentStockInfoesController.cs" />
     <Compile Include="Controllers\HistoryOfStockInfoesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -194,8 +198,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CNNMoney.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNNMoney.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CNNMoney.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNNMoney.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CNNMoney.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CNNMoney.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\CNNmoneyStock.cs">
-      <DependentUpon>WorldTradingDataModel.tt</DependentUpon>
+      <DependentUpon>CNNMoney.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CurrentStockInfo.cs">
       <DependentUpon>WorldTradingDataModel.tt</DependentUpon>
@@ -265,6 +284,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\CNNMoney.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CNNMoney.edmx</DependentUpon>
+      <LastGenOutput>CNNMoney.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CNNMoney.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CNNMoney.edmx</DependentUpon>
+      <LastGenOutput>CNNMoney.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\StockModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>StockModel.edmx</DependentUpon>
@@ -321,6 +350,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\CNNMoney.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CNNMoney.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CNNMoney.edmx.diagram">
+      <DependentUpon>CNNMoney.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -354,7 +390,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\AppInfo.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -376,9 +412,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\CurrentStockInfoes\Details.cshtml" />
     <Content Include="Views\CurrentStockInfoes\Index.cshtml" />
-    <Content Include="Views\HistoryOfStockInfoes\Details.cshtml" />
     <Content Include="Views\HistoryOfStockInfoes\Index.cshtml" />
     <Content Include="Views\WorldTradingDatas\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -390,6 +424,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\CNNmoneyStocks\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -439,11 +474,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
   </Target>
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.74.0.3729.6\build\Selenium.WebDriver.ChromeDriver.targets')" />
-  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.0\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.3.5.1\build\Microsoft.TypeScript.MSBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

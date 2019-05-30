@@ -20,10 +20,8 @@ namespace StockScraper.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult AppInfo()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
