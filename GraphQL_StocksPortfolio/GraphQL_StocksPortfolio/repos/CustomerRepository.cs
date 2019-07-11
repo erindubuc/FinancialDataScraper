@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL_StocksPortfolio.entities;
+using GraphQL_StocksPortfolio.repos.interfaces;
 
 namespace GraphQL_StocksPortfolio.repos
 {
-    public class CustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private List<Customer> _customers = new List<Customer> {
             new Customer

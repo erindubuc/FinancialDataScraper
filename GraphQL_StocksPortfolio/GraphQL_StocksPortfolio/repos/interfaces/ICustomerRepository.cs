@@ -1,10 +1,9 @@
 ﻿using GraphQL_StocksPortfolio.entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace GraphQL_StocksPortfolio.repos
+
+namespace GraphQL_StocksPortfolio.repos.interfaces
 {
     public interface ICustomerRepository
     {
