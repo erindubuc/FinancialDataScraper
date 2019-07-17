@@ -9,36 +9,35 @@ namespace HAP_PracticeWithTables
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var html = "https://www.webscraper.io/test-sites/tables";
             var web = new HtmlWeb();
             var htmlDoc = web.Load(html);
 
-            //var nodes = htmlDoc.DocumentNode.SelectNodes("//tbody//tr//td");
-            var firstNames = htmlDoc.DocumentNode.SelectNodes("/html/body/div/div/table/tbody[1]/tr/td[2]");
-            var lastNames = htmlDoc.DocumentNode.SelectNodes("/html/body/div/div/table/tbody[1]//tr//td[3]");
             var rows = htmlDoc.DocumentNode.SelectNodes("/html/body/div[1]/div[3]/table[1]/tbody[1]//tr");
 
+            List<SiteUser> users = new List<SiteUser>();
 
             foreach (var row in rows)
             {
                 var cells = row.SelectNodes("td");
                 if (cells != null & cells.Count > 0)
                 {
-                    //Console.WriteLine($"Row info: {row.InnerText}");
                     var firstName = cells[1].InnerText;
                     var lastName = cells[2].InnerText;
                     var username = cells[3].InnerText;
 
                     Console.WriteLine($"First: {firstName}  | Last: {lastName}  | Username: {username}");
                     Console.WriteLine("-----------------------------------------------");
+
+                    SiteUser newUser = new SiteUser(firstName, lastName, username);
+                    users.Add(newUser);
                 }
             }
-            /*
-            foreach (var node in firstNames)
-                Console.WriteLine("FirstName: " + node.InnerHtml);
-                */
+
+            foreach (var user in users)
+                Console.WriteLine($"New User: {user.Username}");
             Console.ReadLine();
         }
     }
