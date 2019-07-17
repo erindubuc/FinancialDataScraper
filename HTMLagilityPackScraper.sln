@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HTMLagilityPackScraper", "H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlAgilityPack_Yahoo", "HtmlAgilityPack_Yahoo\HtmlAgilityPack_Yahoo.csproj", "{13C8A827-9B3E-4A8A-A00A-F151F15C8458}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAP_PracticeWithTables", "HAP_PracticeWithTables\HAP_PracticeWithTables.csproj", "{9F43A250-6504-4492-9123-C7EA9F7FFC79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{13C8A827-9B3E-4A8A-A00A-F151F15C8458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13C8A827-9B3E-4A8A-A00A-F151F15C8458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13C8A827-9B3E-4A8A-A00A-F151F15C8458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F43A250-6504-4492-9123-C7EA9F7FFC79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F43A250-6504-4492-9123-C7EA9F7FFC79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F43A250-6504-4492-9123-C7EA9F7FFC79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F43A250-6504-4492-9123-C7EA9F7FFC79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

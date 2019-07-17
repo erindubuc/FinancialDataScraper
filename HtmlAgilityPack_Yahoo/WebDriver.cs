@@ -17,13 +17,13 @@ namespace HtmlAgilityPack_Yahoo
         public static List<Stock> ListOfAllStocks;
 
 
-        public static void DriverLoginToPortfolioAndGetStockData()
+        public static void DriverLoginToPortfolio()
         {
             try
             {
                 options = new ChromeOptions();
-                options.AddArgument("--headless");
-                options.AddArgument("--disable-gpu");
+                //options.AddArgument("--headless");
+                //options.AddArgument("--disable-gpu");
 
 
                 //driver = new ChromeDriver(@"C:\Users\Erin\source\repos\erindubuc\FinancialDataScraper\NUnitTestProject1", options);
@@ -134,7 +134,7 @@ namespace HtmlAgilityPack_Yahoo
                 throw e;
             }
             */
-            driver.Quit();
+            //driver.Quit();
 
             //return ListOfAllStocks;
         }
